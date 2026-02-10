@@ -108,7 +108,8 @@ var day = [
 var allDays = day.length;
 var firstDay = 0;
 var change = $('.day');
-var ohYeah;
+var ohYeah = null;
+var running = false;
 
 function changeDay(){
   change.html(day[firstDay]);
@@ -116,20 +117,37 @@ function changeDay(){
 }
 
 function startCycle(){
-  ohYeah = setInterval(changeDay,120);
+  if(!running){
+    ohYeah = setInterval(changeDay,120);
+    running = true;
+  }
 }
 
-$('.hover-area').hover(
-  function(){
-    $('body').removeClass('uhoh');
-    $('#cube').removeClass('live');
-    startCycle();
-  },
-  function(){
-    clearInterval(ohYeah);
+function stopCycle(){
+  clearInterval(ohYeah);
+  running = false;
+}
+
+/* ===== DESKTOP HOVER ===== */
+$('.hover-area').mouseenter(function(){
+  startCycle();
+});
+
+$('.hover-area').mouseleave(function(){
+  stopCycle();
+});
+
+/* ===== MOBILE TAP ===== */
+$('.hover-area').on('click touchstart', function(){
+  if(running){
+    stopCycle();   // tap kedua → stop
+  }else{
+    startCycle();  // tap pertama → start
   }
-);
+});
+
 </script>
 
 </body>
 </html>
+

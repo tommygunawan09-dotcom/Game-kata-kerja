@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Kuis membuat kalimat</title>
+<title>Hover Bunpou Jepang</title>
 
 <!-- ================= CSS ================= -->
 <style>
@@ -18,7 +18,7 @@ body {
 p {
   color: rgba(114, 123, 141, 0.6);
   font-weight: 400;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
   letter-spacing: 4px;
   margin-top: 300px;
@@ -28,12 +28,25 @@ p {
   background: linear-gradient(to bottom, red 0%, #000 100%);
 }
 
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #e0dd86 25%, #c4ad77 50%, #b38fb5 75%, #a7cae5 100%);
+}
+
+.center-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* tengah vertikal */
+  align-items: center;     /* tengah horizontal */
+  gap: 20px;               /* jarak antar teks */
+}
+
 #box {
   font-size: 3.4em;
   letter-spacing: -0.045em;
   color: #FFF;
   text-align: center;
-  margin-top: 300px;
   text-shadow: 0 2px 8px rgba(158, 143, 32, 0.77);
   cursor:pointer;
 }
@@ -61,6 +74,30 @@ p {
   transition:all .2s;
 }
 
+.hover-area .e-box{
+	position:relative;
+	z-index:50;
+	width:60vw;
+	height:20vh;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-family:'Arial', sans-serif;
+	font-weight:bold;
+	font-size:2vw;
+	border-radius:10px;
+	backdrop-filter:blur(5px);
+		background:rgba(255,255,255,0.5);
+	border:1px solid rgba(255,255,255,0.6);
+	color:#222222;
+}
+
+.l-pageholder .e-box.black{
+	background:rgba(0,0,0,0.8);
+	border:1px solid rgba(0,0,0,0.9);
+	color:#fefefe;
+}
+
 .day:active{
   color: rgba(255,255,255,0.2);
   top:12px;
@@ -83,10 +120,16 @@ p {
 
 <body>
 
-<p>Ketika orang lain menikmati libur, kamu sedang membangun masa depan</p>
+<div class="center-wrapper">
 
-<div id="box" class="hover-area">
-  <span class="kern">K </span>ata Kerja <span class="day">Bentuk&nbsp;</span>、Silahkan discreenshot
+  <p>Ketika orang lain menikmati libur, kamu sedang membangun masa depan</p>
+
+  <div id="box" class="hover-area">
+    <div class="e-box white">
+      Kata Kerja  <span class="day"> Bentuk&nbsp;</span>、Silahkan disreenshcoot!
+    </div>
+  </div>
+
 </div>
 
 <div id="cube"></div>
@@ -173,6 +216,7 @@ $('.hover-area').on('click touchstart', function(){
 
 </body>
 </html>
+
 
 
 

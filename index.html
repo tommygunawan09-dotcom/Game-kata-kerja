@@ -61,7 +61,7 @@ p {
   transition:all .2s;
 }
 
-.day:hover{
+.day:active{
   color: rgba(255,255,255,0.2);
   top:12px;
   animation: mov 0.12s infinite;
@@ -146,8 +146,32 @@ $('.hover-area').on('click touchstart', function(){
   }
 });
 
+/* ===== DESKTOP HOVER ===== */
+$('.hover-area').mouseenter(function(){
+  startCycle();
+  $('.day').addClass('active');   // tambahkan ini
+});
+
+$('.hover-area').mouseleave(function(){
+  stopCycle();
+  $('.day').removeClass('active'); // tambahkan ini
+});
+
+/* ===== MOBILE TAP ===== */
+$('.hover-area').on('click touchstart', function(){
+  if(running){
+    stopCycle();
+    $('.day').removeClass('active');
+  }else{
+    startCycle();
+    $('.day').addClass('active');
+  }
+});
+
+
 </script>
 
 </body>
 </html>
+
 
